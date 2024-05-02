@@ -71,7 +71,7 @@ z4h source ~/.env.zsh
 #z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
 #z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 z4h load   ohmyzsh/ohmyzsh/plugins/vi-mode  # load a plugin
-z4h load   ohmyzsh/ohmyzsh/plugins/zsh-nvm-lazy-load
+
 VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_NORMAL=2
 VI_MODE_CURSOR_VISUAL=6
@@ -110,3 +110,7 @@ alias ls="${aliases[ls]:-ls} -A"
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
+
+# fnm
+export PATH="/home/berk/.local/share/fnm:$PATH"
+eval "`fnm env`"
