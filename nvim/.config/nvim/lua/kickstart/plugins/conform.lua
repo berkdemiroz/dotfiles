@@ -4,12 +4,15 @@ return {
 		opts = {
 			notify_on_error = false,
 			format_on_save = {
-				timeout_ms = 500,
+				timeout_ms = 1500,
 				lsp_fallback = true,
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				json = { "fixjson" },
+				java = { "google-java-format" },
+				typescript = { "prettierd", "prettier" },
+				javascript = { "prettierd", "prettier" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--

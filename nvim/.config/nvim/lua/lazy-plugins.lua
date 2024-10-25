@@ -47,7 +47,9 @@ require("lazy").setup({
 
 	--  require 'kickstart/plugins/tokyonight',
 	require("custom.plugins/onedark"),
-	--require("custom.plugins/catppuccin"),
+	-- require("custom.plugins/nordic"),
+	-- require("custom.plugins/catppuccin"),
+	-- require("custom.plugins/nord"),
 
 	require("kickstart/plugins/todo-comments"),
 
