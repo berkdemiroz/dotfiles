@@ -14,7 +14,6 @@ require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"mfussenegger/nvim-jdtls",
-
 	"RyanMillerC/better-vim-tmux-resizer",
 	"tpope/vim-fugitive",
 
@@ -46,14 +45,13 @@ require("lazy").setup({
 	require("kickstart/plugins/cmp"),
 
 	--  require 'kickstart/plugins/tokyonight',
-	require("custom.plugins/onedark"),
-	-- require("custom.plugins/nordic"),
-	-- require("custom.plugins/catppuccin"),
-	-- require("custom.plugins/nord"),
+	-- require("custom.plugins/onedark"),
+	require("custom.plugins/nordic"),
+	--require("custom.plugins/catppuccin"),
 
 	require("kickstart/plugins/todo-comments"),
 
-	require("kickstart/plugins/mini"),
+	-- require("kickstart/plugins/mini"),
 
 	require("kickstart/plugins/treesitter"),
 

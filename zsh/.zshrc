@@ -1,8 +1,18 @@
 # Personal Zsh configuration file. It is strongly recommended to keep all
 # shell customization and configuration (including exported environment
 # variables such as PATH) in this file or in files sourced from it.
-#
-# Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
+#Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
+## Set proxy for HTTP
+# export http_proxy="192.168.128.139:8080"
+# Set proxy for HTTPS
+# export https_proxy="192.168.128.139:8080"
+# Set proxy for FTP
+# Optional: No proxy for specific domains or IPs
+export no_proxy="localhost,127.0.0.1,*.gov.tr,ulastirma.local, 10.5.*" 
+
+export SPRING_PROFILES_ACTIVE=dev
+
+export NODE_EXTRA_CA_CERTS=/home/berk/Development/uabrootca.crt
 
 # Periodic auto-update on Zsh startup: 'ask' or 'no'.
 # You can manually run `z4h update` to update everything.
@@ -22,7 +32,7 @@ zstyle ':z4h:' term-shell-integration 'yes'
 
 # Right-arrow key accepts one character ('partial-accept') from
 # command autosuggestions or the whole thing ('accept')?
-zstyle ':z4h:autosuggestions' forward-char Ctrl+Y 'accept'
+zstyle ':z4h:autosuggestions' forward-char 'accept'
 
 # Recursively traverse directories when TAB-completing files.
 zstyle ':z4h:fzf-complete' recurse-dirs 'no'
@@ -71,6 +81,7 @@ z4h source ~/.env.zsh
 #z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
 #z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 z4h load   ohmyzsh/ohmyzsh/plugins/vi-mode  # load a plugin
+# z4h source /home/berk/.oh-my-zsh/plugins/zsh-nvm-lazy-load/zsh-nvm-lazy-load.plugin.zsh
 
 VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_NORMAL=2
@@ -78,6 +89,7 @@ VI_MODE_CURSOR_VISUAL=6
 VI_MODE_CURSOR_INSERT=5
 VI_MODE_CURSOR_OPPEND=0
 
+export NODE_OPTIONS=--max_old_space_size=3072
 # Define key bindings.
 #z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
 #z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
@@ -111,6 +123,14 @@ alias ls="${aliases[ls]:-ls} -A"
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
+
+# Load Angular CLI autocompletion.
+#source <(ng completion script)
+
 # fnm
-export PATH="/home/berk/.local/share/fnm:$PATH"
-eval "`fnm env`"
+FNM_PATH="/home/berk/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/berk/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+export PATH=$HOME/.local/bin:$PATH

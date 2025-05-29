@@ -60,7 +60,6 @@ return {
 				--
 				defaults = {
 					path_display = { "smart" },
-					file_ignore_patterns = { "node_modules", ".git", ".venv" },
 					--   mappings = {
 					--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 					--   },

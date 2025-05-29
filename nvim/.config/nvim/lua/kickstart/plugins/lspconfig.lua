@@ -123,7 +123,9 @@ return {
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			-- Enable the following language servers
+
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
+
 			--
 			--  Add any additional override configuration in the following tables. Available keys are:
 			--  - cmd (table): Override the default command used to start the server
@@ -135,7 +137,18 @@ return {
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
-				-- rust_analyzer = {},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							diagnostics = {
+								experimental = {
+									enable = true,
+								},
+							},
+						},
+					},
+				},
+
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -191,6 +204,7 @@ return {
 					function(server_name)
 						local server = servers[server_name] or {}
 						require("lspconfig")[server_name].setup({
+
 							cmd = server.cmd,
 							settings = server.settings,
 							filetypes = server.filetypes,
@@ -202,6 +216,19 @@ return {
 					end,
 				},
 			})
+			--[[ local lspconfig = require("lspconfig")
+
+			lspconfig.rust_analyzer.setup({
+				settings = {
+					["rust-analyzer"] = {
+						diagnostics = {
+							experimental = {
+								enable = true,
+							},
+						},
+					},
+				},
+			}) ]]
 		end,
 	},
 }
