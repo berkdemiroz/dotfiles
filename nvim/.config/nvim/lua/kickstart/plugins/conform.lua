@@ -13,7 +13,7 @@ return {
 				java = { "google-java-format" },
 				javascript = { "prettierd", "prettier" },
 				typescript = { "prettierd", "prettier" },
-				html = {},
+				html = { "prettierd", "prettier" },
 				python = { "black" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
